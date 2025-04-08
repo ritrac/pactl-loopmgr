@@ -2,7 +2,7 @@
 
 pactl-loopmgt.pl - manage PulseAudio/Pipewire loop devices
 
-# SYNOPSYS
+# SYNOPSIS
 
 - **pactl-loopmgt.pl**
 \[**-h|--help**\]

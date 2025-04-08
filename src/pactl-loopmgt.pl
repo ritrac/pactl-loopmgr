@@ -31,7 +31,7 @@ usage(-exitval => 0, -verbose => 2) if $man;
 
 usage(-exitval => 1, -verbose => 1, -message => "Need at least one option.\n") if !$confFile and !$daemon;
 usage(-exitval => 1, -verbose => 1, -message => "Incorrect daemon invocation, config file not specified.\n",
-    -sections => ['SYNOPSYS', 'OPTIONS', 'EXAMPLES/DAEMON']) if !$confFile and $daemon;
+    -sections => ['SYNOPSIS', 'OPTIONS', 'EXAMPLES/DAEMON']) if !$confFile and $daemon;
 
 sub usage
 {
@@ -49,7 +49,7 @@ sub usage
 	    # --help
 	    $ENV{PERLDOC_PAGER} = 'cat'; # == pod2usage(@_, -noperldoc => 1);
 	    if (scalar @format == 0) {
-		@format = ('SYNOPSYS', 'OPTIONS', 'SHORT EXAMPLES');
+		@format = ('SYNOPSIS', 'OPTIONS', 'SHORT EXAMPLES');
 	    }
 	}
 	delete $args{-verbose};
@@ -518,7 +518,7 @@ __END__
 
 pactl-loopmgt.pl - manage PulseAudio/Pipewire loop devices
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
 =over 12
 
