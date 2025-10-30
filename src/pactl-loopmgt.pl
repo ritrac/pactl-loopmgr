@@ -4,6 +4,7 @@ use warnings;
 use JSON;
 #use Data::Dumper;
 use IPC::Open2;
+use POSIX;
 use IO::Select;
 use Time::HiRes qw(clock_gettime CLOCK_MONOTONIC );
 use Getopt::Long qw(:config no_ignore_case);
@@ -85,7 +86,7 @@ sub run
 
 	my $needUpdate = 0;
 
-	while (1) {
+	while (waitpid($pid, WNOHANG) >= 0) {
 	    if ( $s->can_read(0) ) {
 		my $line = <$chld_out> ;
 		if (not $line =~ "on client") {
@@ -104,7 +105,6 @@ sub run
 		}
 	    }
 	}
-	waitpid( $pid, 0 );
     }
 }
 
